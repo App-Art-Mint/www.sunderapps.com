@@ -12,28 +12,658 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$sunderapps-primary: mat-palette($mat-indigo);
-$sunderapps-accent: mat-palette($mat-pink, A200, A100, A400);
+$sunder-primary: mat-palette($mat-indigo);
+$sunder-accent: mat-palette($mat-pink, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$sunderapps-warn: mat-palette($mat-red);
+$sunder-warn: mat-palette($mat-red);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$sunderapps-theme: mat-light-theme((
+$sunder-theme: mat-dark-theme((
   color: (
-    primary: $sunderapps-primary,
-    accent: $sunderapps-accent,
-    warn: $sunderapps-warn,
+    primary: $sunder-primary,
+    accent: $sunder-accent,
+    warn: $sunder-warn,
   )
 ));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include angular-material-theme($sunderapps-theme);
+@include angular-material-theme($sunder-theme);
 
-/* You can add global styles to this file, and also import other style files */
+// Sunder Styles
+@import '_fluid.scss';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// Fonts
+// out: false
+@font-face {
+  font-family: 'Palanquin';
+  src: url(/assets/fonts/Palanquin/Palanquin-Thin.ttf) format('truetype');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'Palanquin';
+  src: url(/assets/fonts/Palanquin/Palanquin-ExtraLight.ttf) format('truetype');
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'Palanquin';
+  src: url(/assets/fonts/Palanquin/Palanquin-Light.ttf) format('truetype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Palanquin';
+  src: url(/assets/fonts/Palanquin/Palanquin-Regular.ttf) format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Palanquin';
+  src: url(/assets/fonts/Palanquin/Palanquin-Medium.ttf) format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Palanquin';
+  src: url(/assets/fonts/Palanquin/Palanquin-SemiBold.ttf) format('truetype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Palanquin';
+  src: url(/assets/fonts/Palanquin/Palanquin-Bold.ttf) format('truetype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Palanquin';
+  src: url(/assets/fonts/Palanquin/Palanquin-Regular.ttf) format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'JosefinSans';
+  src: url(/assets/fonts/Josefin_Sans/JosefinSans-Thin.ttf) format('truetype');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'JosefinSans';
+  src: url(/assets/fonts/Josefin_Sans/JosefinSans-ThinItalic.ttf) format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'JosefinSans';
+  src: url(/assets/fonts/Josefin_Sans/JosefinSans-Light.ttf) format('truetype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'JosefinSans';
+  src: url(/assets/fonts/Josefin_Sans/JosefinSans-LightItalic.ttf) format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'JosefinSans';
+  src: url(/assets/fonts/Josefin_Sans/JosefinSans-Regular.ttf) format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'JosefinSans';
+  src: url(/assets/fonts/Josefin_Sans/JosefinSans-RegularItalic.ttf) format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'JosefinSans';
+  src: url(/assets/fonts/Josefin_Sans/JosefinSans-SemiBold.ttf) format('truetype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'JosefinSans';
+  src: url(/assets/fonts/Josefin_Sans/JosefinSans-SemiBoldItalic.ttf) format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'JosefinSans';
+  src: url(/assets/fonts/Josefin_Sans/JosefinSans-Bold.ttf) format('truetype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'JosefinSans';
+  src: url(/assets/fonts/Josefin_Sans/JosefinSans-BoldItalic.ttf) format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'RacingSansOne';
+  src: url(/assets/fonts/Racing_Sans_One/RacingSansOne-Regular.ttf) format('truetype');
+  font-weight: 400;
+}
+
+// Animations
+@keyframes instafade {
+  0% {
+      color: var(--instagram-1);
+  }
+
+  16.66666% {
+      color: var(--instagram-2);
+  }
+
+  33.33333% {
+      color: var(--instagram-3);
+  }
+
+  50% {
+      color: var(--instagram-4);
+  }
+
+  66.66666% {
+      color: var(--instagram-5);
+  }
+
+  83.33333% {
+      color: var(--instagram-6);
+  }
+
+  100% {
+      color: var(--instagram-7);
+  }
+}
+
+// Themeing
+
+// GLOBAL THEME - Doesn't change on theme swap
+:root {
+  --navbar-height: 75px;
+
+  --brah-blue: #091430;
+  --brah-blue-light: #295ad6;
+
+  --facebook-1: #3b5998;
+  --youtube-1: #F00;
+  --itunes-1: #DDD;
+  --spotify-1: #84bd00;
+  --amazon-1: #F90;
+  --amazon-2: #146eb4;
+  --napster-1: #2ca6de;
+  --napster-2: #fdb813;
+  --google-play-1: #f55a34;
+  --google-play-2: #ffd119;
+  --google-play-3: #ff8c00;
+  --instagram-1: #8a3ab9;
+  --instagram-2: #4c68d7;
+  --instagram-3: #cd486b;
+  --instagram-4: #fbad50;
+  --instagram-5: #fccc63;
+  --instagram-6: #bc2a8d;
+  --instagram-7: #e95950;
+}
+
+// THEME 0 - DEVICE_PREFERENCE: Dark Mode
+:root {
+  --fore: #ddd;
+  --back: #222;
+  --black: #000;
+  --trans: rgba(0, 0, 0, 0.8);
+  --input: #222;
+  --input-back: #fff;
+  --action: #4682b4;
+  --action-focus: #4682b4;
+  --action-active: #4682b4;
+  --accept: #208a20;
+  --accept-focus: #208a20;
+  --accept-active: #208a20;
+  --reject: darkslateblue;
+  --reject-focus: darkslateblue;
+  --reject-active: darkslateblue;
+  --danger: #ff4d4d;
+  --danger-focus: #ff4d4d;
+  --danger-active: #ff4d4d;
+  --warning: #ffaa22;
+  --warning-focus: #ffaa22;
+  --warning-active: #ffaa22;
+  --info: steelblue;
+  --info-focus: steelblue;
+  --info-active: steelblue;
+}
+/*
+// THEME 0 - DEVICE_PREFERENCE: Light Mode
+@media (prefers-color-scheme: light) {
+  :root {
+      --fore: #222;
+      --back: #ddd;
+      --accept: #2b506e;
+      --reject: #2e2759;
+      --info: steelblue;
+      --danger: #b30000;
+  }
+}*/
+
+#theme {
+  // THEME 1 - DARK
+  &.dark {
+      --fore: #ddd;
+      --back: #222;
+      --action: #4682b4;
+      --action-focus: #4682b4;
+      --action-active: #4682b4;
+      --accept: #208a20;
+      --accept-focus: #208a20;
+      --accept-active: #208a20;
+      --reject: darkslateblue;
+      --reject-focus: darkslateblue;
+      --reject-active: darkslateblue;
+      --danger: #ff4d4d;
+      --danger-focus: #ff4d4d;
+      --danger-active: #ff4d4d;
+      --warning: #ffaa22;
+      --warning-focus: #ffaa22;
+      --warning-active: #ffaa22;
+      --info: steelblue;
+      --info-focus: steelblue;
+      --info-active: steelblue;
+  }
+
+  // THEME 2 - LIGHT
+  &.light {
+      --fore: #222;
+      --back: #ddd;
+      --accept: #2b506e;
+      --reject: #2e2759;
+      --info: steelblue;
+      --danger: #b30000;
+  }
+}
+
+// Theme Classes
+.accept {
+  --fore: var(--accept);
+  --action: var(--accept);
+  --action-focus: var(--accept-focus);
+  --action-active: var(--accept-active);
+}
+
+.reject {
+  --fore: var(--reject);
+  --action: var(--reject);
+  --action-focus: var(--reject-focus);
+  --action-active: var(--reject-active);
+}
+
+.danger {
+  --fore: var(--danger);
+  --action: var(--danger);
+  --action-focus: var(--danger-focus);
+  --action-active: var(--danger-active);
+}
+
+.warning {
+  --fore: var(--warning);
+  --action: var(--warning);
+  --action-focus: var(--warning-focus);
+  --action-active: var(--warning-active);
+}
+
+.info {
+  --fore: var(--info);
+  --action: var(--info);
+  --action-focus: var(--info-focus);
+  --action-active: var(--info-active);
+}
+
+// Global Styles
+*, *::before, *::after {
+  box-sizing: border-box;
+  outline-color: var(--brah-blue)
+}
+
+html, body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  font-family: 'Palanquin', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  @include fluid-type(576px, 1200px, 16px, 20px);
+
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: var(--fore);
+  background-color: var(--back);
+  overflow-x: hidden;
+
+  &.open {
+      overflow: hidden;
+  }
+}
+
+main {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 75px;
+  z-index: 10;
+}
+
+input {
+  width: 100%;
+}
+
+// Text Styles
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  font-family: 'JosefinSans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  text-shadow: 0px 0px 10px var(--back);
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1em;
+  font-style: italic;
+}
+
+p {
+  font-size: 1em;
+  text-align: left;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+a, button {
+  cursor: pointer;
+}
+
+// Links
+a {
+  color: var(--fore);
+  transition: color 300ms, animation 300ms;
+  outline: 0;
+  border-radius: 2px;
+  text-decoration: none;
+
+  &:hover, &:active, &:focus {
+      color: var(--action-focus);
+      text-decoration: none;
+
+      .fa-facebook {
+          color: var(--facebook-1);
+      }
+
+      .fa-instagram {
+          animation: 2s infinite ease-in-out alternate instafade;
+      }
+
+      .fa-youtube {
+          color: var(--youtube-1);
+      }
+
+      .fa-itunes {
+          color: var(--itunes-1);
+      }
+
+      .fa-spotify {
+          color: var(--spotify-1);
+      }
+
+      .fa-google-play {
+          color: var(--google-play-1);
+      }
+
+      .fa-amazon {
+          color: var(--amazon-1);
+      }
+
+      .fa-napster {
+          color: var(--napster-1);
+      }
+  }
+
+  &.active {
+      color: var(--action-active);
+  }
+
+  i.fab, i.fas {
+      cursor: pointer;
+      line-height: 30px;
+      transition: color 300ms, transform 300ms;
+  }
+}
+
+// Container for Pages
+.container {
+  max-width: unset;
+  padding: 20px;
+  padding-bottom: var(--navbar-height);
+  overflow-x: hidden;
+  min-height: 100vh;
+
+  &.se {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+  }
+
+  &.c {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+
+  i {
+      padding: 0 5px;
+  }
+}
+
+// Sections in a container
+.section {
+  max-width: 800px;
+  border-radius: 10px;
+  padding: 25px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+// A page to format sections
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 70px);
+  margin-top: calc(100vh - 70px);
+
+  &:first-of-type {
+      margin-top: 0;
+  }
+
+  &.col {
+      flex-direction: column;
+      margin: 20px;
+  }
+}
+
+.flex-r-wrap {
+  display: flex;
+  flex-wrap: wrap;
+
+  & > * {
+      margin: 20px;
+  }
+}
+
+// A grid of equal-width items
+.grid-w {
+  column-width: 245px;
+
+  .item {
+      width: 100%;
+      height: auto;
+      margin: 0 0 20px 0;
+  }
+
+  img, video {
+      width: 100%;
+      height: auto;
+  }
+}
+
+// A grid of equal-height columna
+.grid-h {
+  display: grid;
+  justify-content: center;
+  overflow: hidden;
+  grid-template-columns: repeat(2, 350px);
+  grid-auto-rows: 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+
+// Material
+form {
+  width: 100%;
+  text-align: center;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
+
+  small {
+      color: var(--fore);
+      text-align: left;
+      padding: 0 1em;
+  }
+}
+
+mat-label {
+  i {
+      padding: 0;
+      font-size: 16px;
+  }
+}
+
+mat-form-field {
+  width: 100%;
+  max-width: 700px;
+}
+
+.mat-form-field-hint-wrapper {
+  flex-direction: column;
+
+  .mat-hint {
+      display: flex;
+      align-items: center;
+      color: var(--fore);
+  }
+}
+
+[mat-flat-button] {
+  font-size: 1.2em;
+  text-transform: uppercase;
+
+  &.mat-flat-button {
+      padding: 12px 16px;
+  }
+
+  i {
+      font-size: 1.5em;
+  }
+}
+
+[mat-raised-button] {
+  font-size: 1.2em;
+  text-transform: uppercase;
+
+  &.mat-raised-button {
+      padding: 12px 16px;
+  }
+
+  i {
+      font-size: 1.5em;
+  }
+}
+
+[mat-fab].mat-fab {
+  margin: 30px;
+
+  .mat-button-wrapper {
+      padding: 13px 0 !important;
+  }
+
+  i {
+      font-size: 2em;
+  }
+}
+
+.mat-chip-list-wrapper {
+  justify-content: center;
+}
+
+.credits {
+  .mat-chip-list-wrapper {
+      justify-content: center;
+  }
+}
+
+.mat-line {
+  align-self: flex-start;
+}
+
+mat-nav-list {
+  i {
+      width: 50px;
+  }
+}
+
+.bg {
+  display: block;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
+}
+
+.vp-fade-in {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: opacity 500ms, transform 500ms !important;
+  pointer-events: none;
+
+  &.visible {
+      opacity: 1;
+      transform: translateY(0%);
+      pointer-events: auto;
+  }
+}

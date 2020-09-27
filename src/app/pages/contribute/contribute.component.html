@@ -1,0 +1,18 @@
+<div class="container">
+    <h2>Help a guy out?</h2>
+    <div class="section col" *ngFor="let contribution of contributions">
+        <h4>{{ contribution.title }}</h4>
+        <!--h5 *ngIf="contribution.description">{{ contribution.description }}</h5-->
+        <hr />
+        <div class="grid-h">
+            <mat-card class="item {{ action.className }}" *ngFor="let action of contribution.actions">
+                <a [href]="action.url | safe" target="_blank" *ngIf="action.url"></a>
+                <mat-card-header>
+                    <div mat-card-avatar [style.background-image]="'url(' + action.logo + ')'"></div>
+                    <mat-card-title>{{ action.title }}</mat-card-title>
+                    <mat-card-subtitle [innerHTML]="action.description"></mat-card-subtitle>
+                </mat-card-header>
+            </mat-card>
+        </div>
+    </div>
+</div>

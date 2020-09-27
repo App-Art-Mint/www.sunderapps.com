@@ -1,0 +1,20 @@
+<h2>Web Development</h2>
+<div class="grid-h">
+    <mat-card *ngFor="let project of this.projects" class="vp-fade-in">
+        <mat-card-header>
+            <div mat-card-avatar>
+                <img [src]="project.avatar"/>
+            </div>
+            <mat-card-title>{{ project.title }}</mat-card-title>
+            <mat-card-subtitle>{{ project.company }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="project.image" />
+        <mat-card-content>
+            <h3>{{ this.getDate(project) | date: "MMMM y" }}</h3>
+            <p>{{ project.description }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button (click)="open(project.url)" *ngIf="project.url">Visit</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

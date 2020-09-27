@@ -1,0 +1,52 @@
+h3 {
+  text-align: left;
+}
+
+img {
+    width: 100%;
+    margin: auto;
+}
+
+mat-card {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+mat-card-content {
+    flex: 1;
+    margin: 16px 0;
+}
+
+mat-card-actions {
+    flex: 0;
+}
+
+.mat-card-avatar {
+    overflow: hidden;
+}
+
+.grid-h {
+    grid-template-columns: repeat(2, 850px);
+}
+
+@media (max-width: 1760px) {
+    .grid-h {
+        grid-template-columns: repeat(2, 550px);
+    }
+}
+
+@media (max-width: 1160px) {
+    .grid-h {
+        display: flex;
+        flex-direction: column;
+    }
+
+    mat-card {
+        margin: 20px;
+    }
+}
+
+@media (max-width: 765px) {
+
+}
