@@ -1,0 +1,24 @@
+[
+    {
+        "title": "Pittsburgh Pirates Broadcaster Bingo",
+        "description": "Play BINGO while watching the Pittsburgh Pirates!",
+        "organization": "Pittsburgh Post-Gazette",
+        "date": "2019-04",
+        "image": "https://i.imgur.com/dUKVOTQ.png",
+        "url": "https://newsinteractive.post-gazette.com/pittsburgh-pirates-broadcaster-bingo-game/",
+        "technologies": [
+            "PHP 7.2", 
+            "HTML 5", 
+            "CSS 3", 
+            "LESS", 
+            "Font-Awesome 5.7.2", 
+            "JS", 
+            "jQuery 3.3.1", 
+            "HTML2Canvas 0.5.0-beta4", 
+            "FileSaver 1.3.8", 
+            "SunderServer 0.1.0",
+            "Google Tag Manager", 
+            "Logo Design"
+        ]
+    }
+]
