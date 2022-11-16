@@ -5,6 +5,9 @@ import { ContributeComponent } from 'src/app/pages/contribute/contribute.compone
 import { WebDevComponent } from 'src/app/pages/web-dev/web-dev.component';
 import { AppsComponent } from './pages/apps/apps.component';
 import { VisualizersComponent } from './pages/visualizers/visualizers.component';
+import { LibsComponent } from './pages/libs/libs.component';
+import { RefComponent } from './pages/ref/ref.component';
+import { ToolsComponent } from './pages/tools/tools.component';
 
 const routes: Routes = [
   {
@@ -45,6 +48,27 @@ const routes: Routes = [
     component: SettingsComponent,
     data: {
       animation: 'settings'
+    }
+  },
+  {
+    path: 'libs',
+    component: LibsComponent,
+    data: {
+      animation: 'libs'
+    }
+  },
+  {
+    path: 'ref',
+    component: RefComponent,
+    data: {
+      animation: 'ref'
+    }
+  },
+  {
+    path: 'tools',
+    component: ToolsComponent,
+    data: {
+      animation: 'tools'
     }
   },
   {

@@ -30,6 +30,9 @@ import { WebDevComponent } from 'src/app/pages/web-dev/web-dev.component';
 import { VisualizersComponent } from 'src/app/pages/visualizers/visualizers.component';
 import { AppsComponent } from 'src/app/pages/apps/apps.component';
 import { BackgroundGradientComponent } from 'src/app/partials/background-gradient/background-gradient.component';
+import { LibsComponent } from './pages/libs/libs.component';
+import { ToolsComponent } from './pages/tools/tools.component';
+import { RefComponent } from './pages/ref/ref.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,9 @@ import { BackgroundGradientComponent } from 'src/app/partials/background-gradien
     VisualizersComponent,
     AppsComponent,
     BackgroundGradientComponent,
+    LibsComponent,
+    ToolsComponent,
+    RefComponent,
   ],
   imports: [
     AppRoutingModule,
